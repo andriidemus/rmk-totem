@@ -1,6 +1,6 @@
-# RMK 
+# RMK TOTEM 
 
-RMK is a feature-rich and easy-to-use keyboard firmware.
+RMK configuration for [the Totem keyboard](https://github.com/GEIGEIGEIST/TOTEM/).
 
 ## uf2 support
 

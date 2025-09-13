@@ -1,30 +1,26 @@
 [keyboard]
-name = "rmk-totem"
-product_name = "rmk-totem"
+name = "Totem"
+product_name = "Totem"
 vendor_id = 0x4c4b
 product_id = 0x4643
 manufacturer = "RMK"
 chip = "nrf52840"
 
+[storage]
+# "true" will reset stored layout and BT connection
+#clear_storage = true
+
 [layout]
-# WARNING: Currently row2col/col2row is set in RMK's feature gate, row2col config here is valid ONLY when you're using cloud compilation.
-# Checkout doc here: https://rmk.rs/docs/user_guide/faq.html#my-matrix-is-row2col-the-matrix-doesn-t-work
-# row2col = true
 rows = 4
-cols = 3
-layers = 2
+cols = 10
+layers = 1
 keymap = [
     [
-        ["A", "B", "C"],
-        ["Kc1", "Kc2", "Kc3"],
-        ["LCtrl", "MO(1)", "LShift"],
-        ["OSL(1)", "LT(2, Kc9)", "LM(1, LShift | LGui)"]
-    ],
-    [
-        ["_", "TT(1)", "TG(2)"],
-        ["_", "_", "_"],
-        ["_", "_", "_"],
-        ["_", "_", "_"]
+        ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+        ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"],
+        ["Z", "X", "C", "V", "B", "N", "M", ",", ".", "/"],
+        ["esc", "No", "bspc", "spc", "l_shift",
+            "r_gui", "ent", "Tab", "No", "r_ctrl"]
     ],
 ]
 
@@ -38,29 +34,21 @@ tap_hold = { enable_hrm = true }
 connection = "ble"
 
 [split.central]
-rows = 2
-cols = 2
+rows = 4
+cols = 5
 row_offset = 0
 col_offset = 0
+
 [split.central.matrix]
-input_pins = ["P1_04", "P1_06"]
-output_pins = ["P0_02", "P1_15"]
+input_pins = ["P0_02", "P0_03", "P0_28", "P0_29"]
+output_pins = ["P0_04", "P0_05", "P1_15", "P1_14", "P1_13"]
 
 [[split.peripheral]]
-rows = 2
-cols = 1
-row_offset = 2
-col_offset = 2
+rows = 4
+cols = 5
+row_offset = 0
+col_offset = 5
 
 [split.peripheral.matrix]
-input_pins = ["P1_04", "P1_06"]
-output_pins = ["P0_02"]
-
-# [[split.peripheral]]
-# rows = 2
-# cols = 1
-# row_offset = 2
-# col_offset = 2
-# serial = [{ instance = "UART0", tx_pin = "PIN_0", rx_pin = "PIN_1" }]
-# input_pins = ["PIN_9", "PIN_11"]
-# output_pins = ["PIN_10"]
+input_pins = ["P0_02", "P0_03", "P0_28", "P0_29"]
+output_pins = ["P1_13", "P1_14", "P1_15", "P0_05", "P0_04"]
